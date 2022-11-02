@@ -10,7 +10,7 @@ export class Store extends Component
   constructor(props)
   {
     super(props);
-    this.state = { items: [], userGil: 0, loading: true, loadedSuccess: false };
+    this.state = { items: [], userOkubo: 0, loading: true, loadedSuccess: false };
   }
 
   componentDidMount()
@@ -30,7 +30,7 @@ export class Store extends Component
       headers: !token ? {} : { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.json())
-      .then(res => this.setState({ items: res.items, userGil: res.userGil, loading: false, loadedSuccess: true }))
+      .then(res => this.setState({ items: res.items, userOkubo: res.userOkubo, loading: false, loadedSuccess: true }))
       .catch(err =>
       {
         console.log(err);
@@ -43,10 +43,10 @@ export class Store extends Component
     return <Container style={{ paddingTop: "10px", paddingLeft: "0px" }}>
       <Row className="align-items-center">
         <Col align='right' style={{ textAlign: "right", padding: "0px" }} >
-          <Form.Label style={{ margin: "0px" }}>My Gil:</Form.Label>
+          <Form.Label style={{ margin: "0px" }}>My Okubo:</Form.Label>
         </Col>
         <Col xs={2}>
-          <Form.Control type="number" name="gil" id="gil" value={this.state.userGil} style={{ textAlign: "right", padding: "0px" }} readOnly />
+          <Form.Control type="number" name="okubo" id="okubo" value={this.state.userOkubo} style={{ textAlign: "right", padding: "0px" }} readOnly />
         </Col>
       </Row>
       <Row style={{ paddingTop: "5px" }}>

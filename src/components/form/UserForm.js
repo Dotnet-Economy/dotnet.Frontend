@@ -7,7 +7,7 @@ export default class UserForm extends React.Component
     state = {
         id: 0,
         email: '',
-        gil: '',
+        okubo: '',
         alertVisible: false,
         validated: false
     }
@@ -15,8 +15,8 @@ export default class UserForm extends React.Component
     {
         if (this.props.user)
         {
-            const { id, email, gil } = this.props.user
-            this.setState({ id, email, gil });
+            const { id, email, okubo } = this.props.user
+            this.setState({ id, email, okubo });
         }
     }
     onChange = e =>
@@ -53,7 +53,7 @@ export default class UserForm extends React.Component
             body: JSON.stringify({
                 id: this.state.id,
                 email: this.state.email,
-                gil: parseFloat(this.state.gil)
+                okubo: parseFloat(this.state.okubo)
             })
         })
             .then(async response =>
@@ -92,9 +92,9 @@ export default class UserForm extends React.Component
                 <Form.Control.Feedback type="invalid">The Email field is required</Form.Control.Feedback>
             </Form.Group>
             <Form.Group>
-                <Form.Label htmlFor="gil">Gil:</Form.Label>
-                <Form.Control type="number" name="gil" onChange={this.onChange} value={this.state.gil} required />
-                <Form.Control.Feedback type="invalid">The Gil field is required</Form.Control.Feedback>
+                <Form.Label htmlFor="okubo">Okubo:</Form.Label>
+                <Form.Control type="number" name="okubo" onChange={this.onChange} value={this.state.okubo} required />
+                <Form.Control.Feedback type="invalid">The Okubo field is required</Form.Control.Feedback>
             </Form.Group>
             <Button variant="primary" type="submit">Save</Button>
 

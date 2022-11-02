@@ -78,7 +78,7 @@ export class Users extends Component
               <tr>
                 <th>Id</th>
                 <th>Email</th>
-                <th>Gil</th>
+                <th>Okubo</th>
                 <th>Inventory</th>
                 <th style={{ textAlign: "center" }}>Actions</th>
               </tr>
@@ -97,7 +97,7 @@ export class Users extends Component
                       {user.email}
                     </td>
                     <td>
-                      {user.gil}
+                      {user.okubo}
                     </td>
                     <td>
                       <Link to={{

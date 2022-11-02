@@ -63,7 +63,7 @@ export default class PurchaseForm extends React.Component
 
     async purchaseItem()
     {
-        let confirmPurchase = window.confirm(`Purchase ${this.state.quantity} ${this.state.name} for ${this.state.price * this.state.quantity} gil?`);
+        let confirmPurchase = window.confirm(`Purchase ${this.state.quantity} ${this.state.name} for ${this.state.price * this.state.quantity} okubo?`);
         if (confirmPurchase)
         {
             this.setState({ buttonDisabled: true, isLoading: true, alertVisible: false })
