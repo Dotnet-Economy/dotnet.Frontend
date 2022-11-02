@@ -43,14 +43,35 @@ export class Home extends Component
   {
     return (
       <div>
-        <h1>Play Economy</h1>
-        <p>Welcome to the Play Economy website, a cloud native virtual economy system.</p>
+        <h1>Dotnet Economy</h1>
+        <p>Welcome to the Dotnet Economy website, a cloud native virtual economy system.</p>
         <p>To get started, yout can:</p>
         <ul>
           <li>Visit the <Link to={ApplicationPaths.StorePath}>Store</Link></li>
           <li>Check your <Link to={ApplicationPaths.InventoryPath}>Inventory</Link></li>
           {this.adminView()}
         </ul>
+        {this.devOnlyLinks()}
+      </div>
+    );
+  }
+
+  adminView()
+  {
+    if (this.state.isAuthenticated && this.state.role === "Admin")
+    {
+      return (<Fragment>
+        <li>Manage the <Link to={ApplicationPaths.CatalogPath}>Catalog</Link></li>
+        <li>Manage registered <Link to={ApplicationPaths.UsersPath}>Users</Link></li>
+      </Fragment>);
+    }
+  }
+
+  devOnlyLinks()
+  {
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development')
+    {
+      return (<Fragment>
         <p>You can also</p>
         <ul>
           <li>Manage the <a href={window.RABBITMQ_URL} target="_blank" rel="noreferrer">message queues</a></li>
@@ -63,17 +84,6 @@ export class Home extends Component
             </ul>
           </li>
         </ul>
-      </div>
-    );
-  }
-
-  adminView()
-  {
-    if (this.state.isAuthenticated && this.state.role === "Admin")
-    {
-      return (<Fragment>
-        <li>Manage the <Link to={ApplicationPaths.CatalogPath}>Catalog</Link></li>
-        <li>Manage registered <Link to={ApplicationPaths.UsersPath}>Users</Link></li>
       </Fragment>);
     }
   }

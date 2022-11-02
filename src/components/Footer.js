@@ -5,7 +5,7 @@ export class Footer extends Component {
     return (
       <footer className="footer border-top text-muted">
         <div className="container">
-          &copy; 2021 - Play Economy
+          &copy; 2021 - Dotnet Economy
         </div>
       </footer>
     );

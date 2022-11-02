@@ -47,7 +47,7 @@ export class NavMenu extends Component
       <header>
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand as={Link} to="/">Play Economy</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/">Dotnet Economy</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               {this.checkAuthAndRenderMenuItems()}
