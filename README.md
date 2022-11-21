@@ -28,7 +28,7 @@ Then navigate to http://localhost:3000 in your browser.
 ## Build the docker image
 
 ```powershell
-$version="1.0.1" #Keep up with Helm chart
+$version="1.0.3" #Keep up with Helm chart
 $appname="dotneteconomy"
 docker build -t "$appname.azurecr.io/dotnet.frontend:$version" .
 ```
