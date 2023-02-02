@@ -43,7 +43,6 @@ export class Home extends Component
   {
     return (
       <div>
-        <h1>Dotnet Economy</h1>
         <p>Welcome to the Dotnet Economy website, a cloud native virtual economy system.</p>
         <p>To get started, you can:</p>
         <ul>

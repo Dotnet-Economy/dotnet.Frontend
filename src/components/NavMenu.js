@@ -47,7 +47,7 @@ export class NavMenu extends Component
       <header>
         <Navbar bg="light" expand="lg">
           <Container>
-            <Navbar.Brand as={Link} to="/">Dotnet Economy</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" style={styles.navBarText}>Dotnet Economy</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               {this.checkAuthAndRenderMenuItems()}
@@ -88,10 +88,10 @@ export class NavMenu extends Component
     {
       return (<Fragment>
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/" style={styles.navBarText}>Home</Nav.Link>
           {this.storeAndInventoryItems()}
-          <Nav.Link as={Link} to={ApplicationPaths.CatalogPath}>Catalog</Nav.Link>
-          <Nav.Link as={Link} to={ApplicationPaths.UsersPath}>Users</Nav.Link>
+          <Nav.Link as={Link} to={ApplicationPaths.CatalogPath} style={styles.navBarText}>Catalog</Nav.Link>
+          <Nav.Link as={Link} to={ApplicationPaths.UsersPath} style={styles.navBarText}>Users</Nav.Link>
         </Nav>
         <Nav>
           {this.profileAndLogoutItems()}
@@ -121,8 +121,8 @@ export class NavMenu extends Component
   storeAndInventoryItems()
   {
     return (<Fragment>
-      <Nav.Link as={Link} to={ApplicationPaths.StorePath}>Store</Nav.Link>
-      <Nav.Link as={Link} to={ApplicationPaths.InventoryPath}>My Inventory</Nav.Link>
+      <Nav.Link as={Link} to={ApplicationPaths.StorePath} style={styles.navBarText}>Store</Nav.Link>
+      <Nav.Link as={Link} to={ApplicationPaths.InventoryPath} style={styles.navBarText}>My Inventory</Nav.Link>
     </Fragment>);
   }
 
@@ -131,8 +131,12 @@ export class NavMenu extends Component
     const profilePath = `${AuthorizationPaths.Profile}`;
     const logoutPath = { pathname: `${AuthorizationPaths.LogOut}`, state: { local: true } };
     return (<Fragment>
-      <Nav.Link as={Link} to={profilePath}>Hello {this.state.userName}</Nav.Link>
-      <Nav.Link as={Link} to={logoutPath}>Logout</Nav.Link>
+      <Nav.Link as={Link} to={profilePath} style={styles.navBarText}>Hello {this.state.userName}</Nav.Link>
+      <Nav.Link as={Link} to={logoutPath} style={styles.navBarText}>Logout</Nav.Link>
     </Fragment>);
   }
 }
+
+const styles = {
+  navBarText: { color: "black", fontWeight:'bold' }
+};
